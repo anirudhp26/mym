@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css'
+import { AuthContext } from '../AuthContext';
 export default function Auth() {
     const [loginsignupToggle, setLoginsignuptoggle] = React.useState(true);
     const [email, setEmail] = React.useState('');
@@ -12,20 +13,21 @@ export default function Auth() {
     const btntoggle = () => {
         setLoginsignuptoggle(!loginsignupToggle);
     }
+    const { setAuth } = useContext(AuthContext);
     Axios.defaults.withCredentials = true;
     const formSubmitlogin = () => {
-        document.getElementById("loader").style.display = "flex";
         Axios.post(`https://backend-sm.vercel.app/auth/login`, {username: username, email: email, password: password}).then((response) => {
             console.log(response);
             if (response.data.loginStatus === true) {
-                navigate('/home');
+                setAuth(true)
+                navigate('/');
             }
         })
     }
     const formSubmitsignup = () => {
-        document.getElementById("loader").style.display = "flex";
         Axios.post('https://backend-sm.vercel.app/auth/signup', {username: username, email: email, password: password}).then((response) => {
-            navigate('/home');
+            setAuth(true);
+            navigate('/');
         })
     }
     const passwordCompare = () => {
