@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Axios from 'axios';
 import '../global.css';
 import { AuthContext } from '../AuthContext';
-import Auth from './auth';
+import LoginAuth from './LoginAuth';
 export default function Home() {
     const { auth } = useContext(AuthContext);
     const [img, setImg] = useState({});
@@ -30,7 +30,7 @@ export default function Home() {
                     </>
                     :
                     <>
-                        <Auth />
+                        <LoginAuth />
                     </>
             }
         </>

@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css'
 import { AuthContext } from '../AuthContext';
-export default function Auth() {
+export default function LoginAuth() {
     const [loginsignupToggle, setLoginsignuptoggle] = React.useState(true);
     const [email, setEmail] = React.useState('');
     const [username, setUsername] = React.useState('');
@@ -16,7 +16,7 @@ export default function Auth() {
     const { setAuth } = useContext(AuthContext);
     Axios.defaults.withCredentials = true;
     const formSubmitlogin = () => {
-        Axios.post(`https://backend-sm.vercel.app/auth/login`, {username: username, email: email, password: password}).then((response) => {
+        Axios.post(`https://backend-sm.vercel.app/auth/login`, { username: username, email: email, password: password }).then((response) => {
             console.log(response);
             if (response.data.loginStatus === true) {
                 setAuth(true)
@@ -25,24 +25,24 @@ export default function Auth() {
         })
     }
     const formSubmitsignup = () => {
-        Axios.post('https://backend-sm.vercel.app/auth/signup', {username: username, email: email, password: password}).then((response) => {
+        Axios.post('https://backend-sm.vercel.app/auth/signup', { username: username, email: email, password: password }).then((response) => {
             setAuth(true);
             navigate('/');
         })
     }
     const passwordCompare = () => {
         if (password !== cpassword) {
-            return(
+            return (
                 <p className='chkpass-alert'>* Passwords don't match, Re-check!</p>
             )
         }
-        else{
+        else {
             return null;
         }
     }
 
     const loginsignupform = () => {
-        if (loginsignupToggle === true) {        
+        if (loginsignupToggle === true) {
             return (
                 <div className="body">
                     <div className="container-login">
@@ -67,7 +67,7 @@ export default function Auth() {
                 </div>
             )
         }
-        else{
+        else {
             return (
                 <div className="body">
                     <div className="container-signup">
@@ -99,7 +99,7 @@ export default function Auth() {
 
     }
 
-    return(
+    return (
         <>
             {loginsignupform()}
         </>
