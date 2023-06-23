@@ -19,7 +19,7 @@ export default function LoginAuth() {
     const { setAuth } = useContext(AuthContext);
     Axios.defaults.withCredentials = true;
     const formSubmitlogin = () => {
-        Axios.post(`https://backend-sm.vercel.app/auth/login`, { username: username, email: email, password: password }).then((response) => {
+        Axios.post(`https://backend-sm.vercel.app/auth/login`, { username: username, password: password }).then((response) => {
             console.log(response);
             if (response.data.loginStatus === true) {
                 setAuth(true)
@@ -28,7 +28,7 @@ export default function LoginAuth() {
         })
     }
     const formSubmitsignup = () => {
-        Axios.post('https://backend-sm.vercel.app/auth/signup', { username: username, email: email, password: password }).then((response) => {
+        Axios.post('https://backend-sm.vercel.app/auth/signup', { username: username, password: password }).then((response) => {
             setAuth(true);
             navigate('/');
         })
