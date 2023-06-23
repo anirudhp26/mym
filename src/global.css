@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .navbar{
@@ -9,35 +9,53 @@
     height: 12vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     background-color: black;
 }
 
 .home-heading{
-    font-size: 35px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 1px;
     color: white;
+}
+
+.logout-btn{
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transition: all 0.5s;
+}
+
+.logout-btn:hover{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
 }
 
 .img-heading{
     margin: 2rem 0;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .img-section{
     width: 60%;
-    margin: auto;
+    margin: 2rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border: 1px solid black;
 }
 
 .img-section > img {
-    width: 70%;
+    width: 100%;
     height: auto;
 }
 
 .img-desc {
-    margin: 2rem 0;
     padding: 1rem;
     letter-spacing: 1px;
     transition: all 0.5s;

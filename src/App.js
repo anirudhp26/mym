@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./views/Home";
 import { AuthContext } from "./AuthContext";
 import { useState } from "react";
+import MainApp from "./views/MainApp";
 
 function App() {
   const [auth, setAuth] = useState(false);
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <AuthContext.Provider value={{auth, setAuth}}>
         <Routes>
-          <Route index element={<Home/>} path="/"></Route>
+          <Route index element={<MainApp/>} path="/"></Route>
         </Routes>
       </AuthContext.Provider>
     </BrowserRouter>
