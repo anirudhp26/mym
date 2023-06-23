@@ -64,8 +64,8 @@ export default function LoginAuth() {
                             <GoogleLogin
                                 clientId={client_id}
                                 buttonText='Login using Google'
-                                onSuccess={() => {setAuth(true)}}
-                                onFailure={() => {setAuth(false)}}
+                                onSuccess={() => { setAuth(true) }}
+                                onFailure={() => { setAuth(false) }}
                                 cookiePolicy='single_host_origin'
                                 isSignedIn={true}
                             >
@@ -103,8 +103,8 @@ export default function LoginAuth() {
                             <GoogleLogin
                                 clientId={client_id}
                                 buttonText='Login using Google'
-                                onSuccess={() => {setAuth(true)}}
-                                onFailure={() => {setAuth(false)}}
+                                onSuccess={() => { setAuth(true) }}
+                                onFailure={() => { setAuth(false) }}
                                 cookiePolicy='single_host_origin'
                                 isSignedIn={true}
                             >
