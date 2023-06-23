@@ -8,7 +8,7 @@ export default function Home() {
     const [img, setImg] = useState({});
     React.useEffect(() => {
         if (auth) {
-            Axios.get("https://api.nasa.gov/planetary/apod?api_key=Bc0jr7ltoimdJd5sNR9aPzV3DgdeSJpfOz1UmmGf").then((responce) => {
+            Axios.get("https://api.nasa.gov/planetary/apod?api_key=Bc0jr7ltoimdJd5sNR9aPzV3DgdeSJpfOz1UmmGf", {withCredentials: true}).then((responce) => {
                 setImg(responce.data)
             })
         }
