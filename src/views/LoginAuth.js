@@ -2,7 +2,10 @@ import React, { useContext } from 'react'
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css'
+import GoogleLogin from 'react-google-login';
 import { AuthContext } from '../AuthContext';
+
+const client_id = '1000045723205-13uqjv0vbms6r55mqhri0pg5d83d33su.apps.googleusercontent.com';
 export default function LoginAuth() {
     const [loginsignupToggle, setLoginsignuptoggle] = React.useState(true);
     const [email, setEmail] = React.useState('');
@@ -57,6 +60,17 @@ export default function LoginAuth() {
                         <button className="authButton" onClick={formSubmitlogin}>
                             Login
                         </button>
+                        <div id='signInButton'>
+                            <GoogleLogin
+                                clientId={client_id}
+                                buttonText='Login using Google'
+                                onSuccess={() => {setAuth(true)}}
+                                onFailure={() => {setAuth(false)}}
+                                cookiePolicy='single_host_origin'
+                                isSignedIn={true}
+                            >
+                            </GoogleLogin>
+                        </div>
                         <div className="moreSection">
                             <p style={{ margin: 'auto', fontSize: '15px', fontFamily: "'Anton', sans-serif" }}>Don't have an Account?</p>
                             <button className="moreButton" onClick={btntoggle}>
@@ -85,6 +99,17 @@ export default function LoginAuth() {
                         <button className="authButton" onClick={formSubmitsignup}>
                             SignUp
                         </button>
+                        <div id='signInButton'>
+                            <GoogleLogin
+                                clientId={client_id}
+                                buttonText='Login using Google'
+                                onSuccess={() => {setAuth(true)}}
+                                onFailure={() => {setAuth(false)}}
+                                cookiePolicy='single_host_origin'
+                                isSignedIn={true}
+                            >
+                            </GoogleLogin>
+                        </div>
                         <div className="moreSection">
                             <p style={{ margin: 'auto', fontSize: '15px', fontFamily: "'Anton', sans-serif" }}>Already have an Account?</p>
                             <button className="moreButton" onClick={btntoggle}>
@@ -105,3 +130,11 @@ export default function LoginAuth() {
         </>
     )
 }
+
+
+
+
+// oauth
+
+// 1000045723205-13uqjv0vbms6r55mqhri0pg5d83d33su.apps.googleusercontent.com
+// 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
