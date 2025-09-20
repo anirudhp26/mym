@@ -5,8 +5,10 @@ import { AuthContext } from '../AuthContext';
 export default function Home() {
     const [img, setImg] = useState({});
     const { setAuth } = useContext(AuthContext);
+    const apiKey = 'Bc0jr7ltoimdJd5sNR9aPzV3DgdeSJpfOz1UmmGf';
     useEffect(() => {
         const getImage = async () => {
+            console.log(apiKey);
             const res = await fetch('https://api.nasa.gov/planetary/apod?api_key=Bc0jr7ltoimdJd5sNR9aPzV3DgdeSJpfOz1UmmGf');
             const img_content = await res.json();
             if (img_content) {
@@ -24,6 +26,7 @@ export default function Home() {
             <div className='img-section'>
                 <p className='img-heading'>{img.title}</p>
                 <img src={img.url} alt=""></img>
+                <p className='img-desc'>{apiKey}</p>
                 <p className='img-desc'>{img.explanation}</p>
             </div>
         </>
